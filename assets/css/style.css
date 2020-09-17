@@ -1,4 +1,9 @@
+body {
+}
 
+.navbar {
+    background-color: rgb(210, 0, 0);
+}
 .navbar span{
     width: 100%;
     text-align: center;
