@@ -6,7 +6,7 @@ $(function() {
     })
 
     function showRecipe () {
-        var queryURLRecipe = "https://api.spoonacular.com/recipes/complexSearch?apiKey=d966ad9d26074fb7a91baf2b851421b0&query=" + $("#food-search").val();
+        var queryURLRecipe = "https://api.spoonacular.com/recipes/complexSearch?apiKey=d966ad9d26074fb7a91baf2b851421b0&query=" + $("#food-search").val() + "&addRecipeInformation=true";
         $.ajax({
             url: queryURLRecipe,
             method: "GET",
