@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./assets/css/style.css" />
+
 </head>
 
 <body>
@@ -54,9 +55,9 @@
                         <h2>Where restaurant price will go</h2>
                     </div>
                     <div class="card-body">
-                        <p>
-                            Where the restaurant information will go
-                        </p>
+                        <div id="map">
+
+                        </div>
                         <div class="dropdown">
                             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Dropdown
@@ -74,6 +75,8 @@
     </div>
 
     <script src="./assets/js/script.js" async defer></script>
+
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC0p2zVHB7aF09ecD4SQIx2CcuH1JIUBuY&libraries=places"></script>
 </body>
 
 </html>
