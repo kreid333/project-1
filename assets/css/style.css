@@ -3,11 +3,11 @@ body {
 }
 
 .card-header {
-    background-color:  rgb(180, 0, 0);
+    background-color: rgb(180, 0, 0);
     color: white;
 }
 
-#clear-btn{
+#clear-btn {
     border: 2px solid rgb(255, 0, 0);
     color: rgb(255, 0, 0);
 }
@@ -16,7 +16,8 @@ body {
     background-color: rgb(255, 0, 0);
     color: white;
 }
-.navbar span{
+
+.navbar span {
     width: 100%;
     text-align: center;
     font-size: 30pt;
@@ -32,4 +33,10 @@ body {
 
 form {
     margin: 0 auto;
+}
+
+.recipe-height {
+    height: 70%;
+    width: 70%;
+    align-content: center;
 }
