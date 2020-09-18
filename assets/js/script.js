@@ -9,7 +9,7 @@ $(document).ready(function() {
     $("#search-btn").on("click", function(event) {
         event.preventDefault();
         showRecipe();
-        showRestaurant();
+
     });
 
     function showRecipe() {
