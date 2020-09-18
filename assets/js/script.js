@@ -37,7 +37,6 @@ $(document).ready(function() {
 });
 
 
-
 // name,location string,rating,price level,photo,website
 
 // name, location string, photo, rating, price
