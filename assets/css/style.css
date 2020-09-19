@@ -1,5 +1,12 @@
 body {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-image: url(../images/pexels-pixabay-262978.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+#label-text {
+    color: #fff;
 }
 
 .card-header {
@@ -8,12 +15,16 @@ body {
 }
 
 #clear-btn {
-    border: 2px solid rgb(255, 0, 0);
-    color: rgb(255, 0, 0);
+    background-color: rgb(180, 0, 0);
+    color: #fff;
+}
+
+#clear-btn:hover {
+    background-color: rgb(145, 1, 1);
 }
 
 .navbar {
-    background-color: rgb(255, 0, 0);
+    background-color: rgb(180, 0, 0);
     color: white;
 }
 
@@ -25,18 +36,4 @@ body {
 
 .first-row {
     margin-bottom: 100px;
-}
-
-.col-sm-4 {
-    text-align: center;
-}
-
-form {
-    margin: 0 auto;
-}
-
-.recipe-height {
-    height: 70%;
-    width: 70%;
-    align-content: center;
 }
