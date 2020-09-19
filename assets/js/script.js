@@ -13,7 +13,7 @@ $(document).ready(function () {
   });
   function showRecipe() {
     var queryURLRecipe =
-      "https://api.spoonacular.com/recipes/complexSearch?apiKey=7f3f9ece5a96497bb92170a04e3ce52d&query=" +
+      "https://api.spoonacular.com/recipes/complexSearch?apiKey=ef7ed7d640d243c4be484650917627e8&query=" +
       $("#food-search").val() +
       "&addRecipeInformation=true";
     $.ajax({
