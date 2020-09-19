@@ -21,33 +21,38 @@ $(document).ready(function() {
             url: queryURLRecipe,
             method: "GET",
         }).then(function(response) {
+            console.log(response)
+            var randomIndex = Math.floor(Math.random() * (response.results.length))
+            console.log(randomIndex)
             $("#recipe-image").empty();
             $("#recipe-title").empty();
             $("#recipe-time").empty();
             $("#recipe-ranking").empty();
             $("#recipe-link").empty();
-            var recipeImage = $("<img>");
-            recipeImage.attr("src", response.results[0].image);
-            recipeImage.attr("class", "recipe-height");
-            $("#recipe-image").append(recipeImage);
+            if (response.results[randomIndex].image !== undefined) {
+                var recipeImage = $("<img>");
+                recipeImage.attr("src", response.results[randomIndex].image);
+                recipeImage.attr("class", "recipe-height");
+                $("#recipe-image").append(recipeImage);
+            } 
             var recipeTitle = $("<p>");
-            recipeTitle.text(response.results[0].title);
+            recipeTitle.text(response.results[randomIndex].title);
             $("#recipe-title").append(recipeTitle);
             var recipeTime = $("<p>");
             recipeTime.text(
                 "Time to make: " +
-                response.results[0].readyInMinutes +
-                " minutes"
+                    response.results[randomIndex].readyInMinutes +
+                      " minutes"
             );
             $("#recipe-time").append(recipeTime);
             $("#recipe-rank").text(
-                "Recipe Rating: " +
-                response.results[0].spoonacularScore / 2 +
+              "Recipe Rating: " +
+                response.results[randomIndex].spoonacularScore / 2 +
                 "/50"
             );
             var recipeLink = $("<a>");
-            recipeLink.attr("href", response.results[0].sourceUrl);
-            recipeLink.text(response.results[0].sourceUrl);
+            recipeLink.attr("href", response.results[randomIndex].sourceUrl);
+            recipeLink.text(response.results[randomIndex].sourceUrl);
             $("#recipe-link").append(recipeLink);
         });
     }
@@ -70,37 +75,44 @@ $(document).ready(function() {
             var array = [];
             var data = response.data;
             for (var i = 0; i < data.length; i++) {
-                if (
-                    data[i].cuisine !== [] &&
-                    data[i].cuisine !== undefined &&
-                    data[i].cuisine[0] !== undefined &&
-                    data[i].cuisine[0].name.includes($("#food-search").val())
-                ) {
-                    array.push(data[i]);
-                }
+              if (
+                data[i].cuisine !== [] &&
+                data[i].cuisine !== undefined &&
+                data[i].cuisine[0] !== undefined &&
+                data[i].cuisine[0].name.includes($("#food-search").val())
+              ) {
+                array.push(data[i]);
+              }
             }
+            console.log(array);
+            var randomIndex = Math.floor(Math.random() * array.length);
             $("#restaurant-name").empty();
             $("#restaurant-location").empty();
             $("#restaurant-photo").empty();
             $("#restaurant-rating").empty();
             $("#restaurant-price").empty();
-            var restaurantName = $("<p>");
-            restaurantName.text(array[0].name);
-            $("#restaurant-name").append(restaurantName);
-            var restaurantLocation = $("<p>");
-            restaurantLocation.text(array[0].location_string);
-            $("#restaurant-location").append(restaurantLocation);
-            // if (array[0].photo.images.small.url) {
-            //   var restaurantPhoto = $("<img>");
-            //   restaurantPhoto.attr("src", array[0].photo.images.small.url);
-            //   $("#restaurant-photo").append(restaurantPhoto);
-            // }
-            $("#restaurant-rank").text(
-                "Restaurant Rating: " + array[0].rating * 10 + "/50"
-            );
-            var restaurantPrice = $("<p>");
-            restaurantPrice.text(array[0].price_level);
-            $("#restaurant-price").append(restaurantPrice);
+            if (array[randomIndex].name !== undefined) {
+              var restaurantName = $("<p>");
+              restaurantName.text(array[randomIndex].name);
+              $("#restaurant-name").append(restaurantName);
+              var restaurantLocation = $("<p>");
+              restaurantLocation.text(array[randomIndex].location_string);
+              $("#restaurant-location").append(restaurantLocation);
+              if (array[randomIndex].photo) {
+                var restaurantPhoto = $("<img>");
+                restaurantPhoto.attr(
+                  "src",
+                  array[randomIndex].photo.images.small.url
+                );
+                $("#restaurant-photo").append(restaurantPhoto);
+              }
+              $("#restaurant-rank").text(
+                "Restaurant Rating: " + array[randomIndex].rating * 10 + "/50"
+              );
+              var restaurantPrice = $("<p>");
+              restaurantPrice.text(array[randomIndex].price_level);
+              $("#restaurant-price").append(restaurantPrice);
+            }
         });
     }
 });
