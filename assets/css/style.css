@@ -37,3 +37,15 @@ body {
 .first-row {
     margin-bottom: 100px;
 }
+
+.col-sm-4 {
+    text-align: center;
+}
+form {
+    margin: 0 auto;
+}
+.recipe-height {
+    height: 70%;
+    width: 70%;
+    align-content: center;
+}

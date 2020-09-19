@@ -33,10 +33,16 @@ $(document).ready(function () {
       recipeTitle.text(response.results[0].title);
       $("#recipe-title").append(recipeTitle);
       var recipeTime = $("<p>");
-      recipeTime.text("Time to make: " + response.results[0].readyInMinutes);
+      recipeTime.text(
+        "Time to make: " +
+          response.results[0].readyInMinutes +
+          " minutes"
+      );
       $("#recipe-time").append(recipeTime);
       $("#recipe-rank").text(
-        "Recipe Rating: " + response.results[0].spoonacularScore + "/100"
+        "Recipe Rating: " +
+          response.results[0].spoonacularScore / 2 +
+          "/50"
       );
       var recipeLink = $("<a>");
       recipeLink.attr("href", response.results[0].sourceUrl);
@@ -88,7 +94,9 @@ $(document).ready(function () {
       //   restaurantPhoto.attr("src", array[0].photo.images.small.url);
       //   $("#restaurant-photo").append(restaurantPhoto);
       // }
-      $("#restaurant-rank").text("Restaurant Rank: " + array[0].rating);
+      $("#restaurant-rank").text(
+        "Restaurant Rating: " + array[0].rating * 10 + "/50"
+      );
       var restaurantPrice = $("<p>");
       restaurantPrice.text(array[0].price_level);
       $("#restaurant-price").append(restaurantPrice);
