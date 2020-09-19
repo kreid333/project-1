@@ -12,6 +12,19 @@ $(document).ready(function() {
         showRestaurant();
     });
 
+    $("#clear-btn").on("click", function(){
+      $("#recipe-image").empty();
+      $("#recipe-title").empty();
+      $("#recipe-time").empty();
+      $("#recipe-ranking").empty();
+      $("#recipe-link").empty();
+      $("#restaurant-name").empty();
+      $("#restaurant-location").empty();
+      $("#restaurant-photo").empty();
+      $("#restaurant-rating").empty();
+      $("#restaurant-price").empty();
+    })
+
     function showRecipe() {
         var queryURLRecipe =
             "https://api.spoonacular.com/recipes/complexSearch?apiKey=ef7ed7d640d243c4be484650917627e8&query=" +
