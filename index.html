@@ -1,36 +1,39 @@
 <!DOCTYPE html>
 <html class="no-js">
-  <head>
+
+<head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title></title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
-      crossorigin="anonymous"
-    />
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
-      integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
-      crossorigin="anonymous"
-    ></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./assets/css/style.css" />
-  </head>
-  <body>
+</head>
+
+<body>
     <nav class="navbar">
-      <span class="navbar-brand">What I'm Craving</span>
+        <span class="navbar-brand">What I'm Craving</span>
     </nav>
     <br />
     <div class="container">
-      <div class="row first-row">
-        <div class="col-sm-4"></div>
-        <div class="col-sm-4" id="searchbar">
-          <form>
-            <label for="food-search">Search for your desired food</label>
-            <input type="text" class="form-control" id="food-search" />
+        <div class="row first-row">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4" id="searchbar">
+                <form>
+                    <div class="form-group">
+                        <label for="food-search" id="label-text">Choose which cuisine you're craving</label
+              >
+              <select class="form-control" id="food-search">
+                <option>American</option>
+                <option>Chinese</option>
+                <option>Seafood</option>
+                <option>Deli</option>
+                <option>Soup</option>
+                <option>Pizza</option>
+              </select>
+            </div>
             <button type="submit" class="btn btn-primary" id="search-btn">
               Search
             </button>
@@ -39,7 +42,6 @@
         </div>
         <div class="col-sm-4"></div>
       </div>
-      <br />
       <div class="row">
         <div class="col-sm-6">
           <div class="card">
@@ -65,32 +67,13 @@
               <div id="restaurant-photo"></div>
               <div id="restaurant-rating"></div>
               <div id="restaurant-price"></div>
-              <div class="dropdown">
-                <button
-                  class="btn btn-secondary dropdown-toggle"
-                  type="button"
-                  id="dropdownMenu2"
-                  data-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
-                  Dropdown
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                  <button class="dropdown-item" type="button">Action</button>
-                  <button class="dropdown-item" type="button">
-                    Another action
-                  </button>
-                  <button class="dropdown-item" type="button">
-                    Something else here
-                  </button>
-                </div>
-              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+    <br />
+    <br />
     <script src="./assets/js/script.js" async defer></script>
   </body>
 </html>
