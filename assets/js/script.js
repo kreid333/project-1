@@ -5,7 +5,17 @@ $(document).ready(function () {
     localStorage.setItem("latitude", latitudeCrd);
     localStorage.setItem("longitude", longitudeCrd);
   }
-  navigator.geolocation.getCurrentPosition(success);
+
+  function error(err) {
+    if (confirm(`ERROR: ${err.message}.`)) {
+      window.location.reload();
+    } else {
+      window.location.reload();
+    }
+  }
+
+  navigator.geolocation.getCurrentPosition(success, error);
+
     function setTime() {
     setInterval(function() {
       $("#search-btn").attr("disabled", false);
