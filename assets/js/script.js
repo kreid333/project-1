@@ -10,6 +10,8 @@ $(document).ready(function () {
     event.preventDefault();
     showRecipe();
     showRestaurant();
+    document.querySelector("#receipeCard").style.display = "block";
+    document.querySelector("#restaurantCard").style.display = "block";
   });
 
   $("#clear-btn").on("click", function () {
@@ -107,6 +109,7 @@ $(document).ready(function () {
       $("#restaurant-address").empty();
       $("#restaurant-rating").empty();
       $("#restaurant-price").empty();
+      $("#restaurant-rank").empty();
       if(array.length ==0) {
         var errorMsg = $("<h2>");
         errorMsg.text("We could not find any restaurant with "+cousineType+ ".");
