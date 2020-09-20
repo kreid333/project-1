@@ -26,7 +26,7 @@ If the user wants to search for a new recipe and restaurant again under the same
 
 Below is a image of how the page will look when the user selects a cuisine and presses search.
 
-![Example Application](./images/deployedapp.png)
+![Example Application](./assets/images/deployedapp.png)
 
 
 ## Credits
