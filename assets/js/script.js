@@ -35,9 +35,7 @@ $(document).ready(function () {
       url: queryURLRecipe,
       method: "GET",
     }).then(function (response) {
-      console.log(response);
       var randomIndex = Math.floor(Math.random() * response.results.length);
-      console.log(randomIndex);
       $("#recipe-image").empty();
       $("#recipe-title").empty();
       $("#recipe-time").empty();
@@ -92,15 +90,15 @@ $(document).ready(function () {
       for (var i = 0; i < data.length; i++) {
         if (
           data[i].cuisine !== [] &&
-          data[i].cuisine !== undefined &&
-          data[i].cuisine[0] !== undefined &&
-          data[i].cuisine[0].name.includes($("#food-search").val())
+          data[i].cuisine !== undefined
         ) {
-          array.push(data[i]);
+          for (var j = 0; j < data[i].cuisine.length; j++) {
+            if (data[i].cuisine[j].name.includes($("#food-search").val())) {
+              array.push(data[i]);
+            }
+          }
         }
       }
-      console.log(array);
-      console.log(array);
       var randomIndex = Math.floor(Math.random() * array.length);
       $("#restaurant-name").empty();
       $("#restaurant-location").empty();
