@@ -10,6 +10,8 @@ $(document).ready(function () {
     event.preventDefault();
     showRecipe();
     showRestaurant();
+    document.querySelector("#receipeCard").style.display = "block";
+    document.querySelector("#restaurantCard").style.display = "block";
   });
 
   $("#clear-btn").on("click", function () {
