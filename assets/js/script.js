@@ -70,6 +70,7 @@ $(document).ready(function () {
   }
 
   function showRestaurant() {
+    var cousineType = $("#food-search").val();
     var settings = {
       async: true,
       crossDomain: true,
@@ -93,7 +94,7 @@ $(document).ready(function () {
           data[i].cuisine !== undefined
         ) {
           for (var j = 0; j < data[i].cuisine.length; j++) {
-            if (data[i].cuisine[j].name.includes($("#food-search").val())) {
+            if (data[i].cuisine[j].name.includes(cousineType)) {
               array.push(data[i]);
             }
           }
@@ -106,31 +107,38 @@ $(document).ready(function () {
       $("#restaurant-address").empty();
       $("#restaurant-rating").empty();
       $("#restaurant-price").empty();
-      if (array[randomIndex].name !== undefined) {
-        var restaurantName = $("<p>");
-        restaurantName.text(array[randomIndex].name);
-        $("#restaurant-name").append(restaurantName);
-        var restaurantLocation = $("<p>");
-        restaurantLocation.text(array[randomIndex].location_string);
-        $("#restaurant-location").append(restaurantLocation);
-        if (array[randomIndex].photo) {
-          var restaurantPhoto = $("<img>");
-          restaurantPhoto.attr(
-            "src",
-            array[randomIndex].photo.images.small.url
+      if(array.length ==0) {
+        var errorMsg = $("<h2>");
+        errorMsg.text("We could not find any restaurant with "+cousineType+ ".");
+        $("#restaurant-name").append(errorMsg);
+      }else {
+        if (array[randomIndex].name !== undefined) {
+          var restaurantName = $("<p>");
+          restaurantName.text(array[randomIndex].name);
+          $("#restaurant-name").append(restaurantName);
+          var restaurantLocation = $("<p>");
+          restaurantLocation.text(array[randomIndex].location_string);
+          $("#restaurant-location").append(restaurantLocation);
+          if (array[randomIndex].photo) {
+            var restaurantPhoto = $("<img>");
+            restaurantPhoto.attr(
+              "src",
+              array[randomIndex].photo.images.small.url
+            );
+            $("#restaurant-photo").append(restaurantPhoto);
+          }
+          var restaurantAddress = $("<p>");
+          restaurantAddress.text(array[randomIndex].address);
+          $("#restaurant-address").append(restaurantAddress);
+          $("#restaurant-rank").text(
+            "Restaurant Rating: " + array[randomIndex].rating * 10 + "/50"
           );
-          $("#restaurant-photo").append(restaurantPhoto);
+          var restaurantPrice = $("<p>");
+          restaurantPrice.text(array[randomIndex].price_level);
+          $("#restaurant-price").append(restaurantPrice);
         }
-        var restaurantAddress = $("<p>");
-        restaurantAddress.text(array[randomIndex].address);
-        $("#restaurant-address").append(restaurantAddress);
-        $("#restaurant-rank").text(
-          "Restaurant Rating: " + array[randomIndex].rating * 10 + "/50"
-        );
-        var restaurantPrice = $("<p>");
-        restaurantPrice.text(array[randomIndex].price_level);
-        $("#restaurant-price").append(restaurantPrice);
       }
+      
     });
   }
 });
