@@ -32,7 +32,7 @@ $(document).ready(function () {
 
   function showRecipe() {
     var queryURLRecipe =
-      "https://api.spoonacular.com/recipes/complexSearch?apiKey=ef7ed7d640d243c4be484650917627e8&query=" +
+      "https://api.spoonacular.com/recipes/complexSearch?apiKey=4783ed6fa8ed48f79ed0bce7a461f32f&query=" +
       $("#food-search").val() +
       "&addRecipeInformation=true";
     $.ajax({
@@ -86,7 +86,7 @@ $(document).ready(function () {
       method: "GET",
       headers: {
         "x-rapidapi-host": "tripadvisor1.p.rapidapi.com",
-        "x-rapidapi-key": "eb45bf77dfmshf915d7ada5b551ep155d70jsn029abbe4cef7",
+        "x-rapidapi-key": "722ef8863bmsha41e0b318e67cb6p142842jsn4e762831a71e",
       },
     };
     $.ajax(settings).done(function (response) {
