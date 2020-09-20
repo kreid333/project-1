@@ -6,8 +6,15 @@ $(document).ready(function () {
     localStorage.setItem("longitude", longitudeCrd);
   }
   navigator.geolocation.getCurrentPosition(success);
+    function setTime() {
+    setInterval(function() {
+      $("#search-btn").attr("disabled", false);
+    }, 5000);
+  }
   $("#search-btn").on("click", function (event) {
     event.preventDefault();
+    $("#search-btn").attr("disabled", true);
+    setTime();
     showRecipe();
     showRestaurant();
     document.querySelector("#receipeCard").style.display = "block";
