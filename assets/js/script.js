@@ -26,6 +26,8 @@ $(document).ready(function () {
     $("#restaurant-address").empty();
     $("#restaurant-rating").empty();
     $("#restaurant-price").empty();
+    $("#restaurant-rank").empty();
+    $("#recipe-rank").empty();
   });
 
   function showRecipe() {
@@ -91,10 +93,7 @@ $(document).ready(function () {
       var array = [];
       var data = response.data;
       for (var i = 0; i < data.length; i++) {
-        if (
-          data[i].cuisine !== [] &&
-          data[i].cuisine !== undefined
-        ) {
+        if (data[i].cuisine !== [] && data[i].cuisine !== undefined) {
           for (var j = 0; j < data[i].cuisine.length; j++) {
             if (data[i].cuisine[j].name.includes(cousineType)) {
               array.push(data[i]);
@@ -109,12 +108,14 @@ $(document).ready(function () {
       $("#restaurant-address").empty();
       $("#restaurant-rating").empty();
       $("#restaurant-price").empty();
-      $("#restaurant-rank").empty();
-      if(array.length ==0) {
+      if (array.length === 0) {
+        $("#restaurant-rank").empty();
         var errorMsg = $("<h2>");
-        errorMsg.text("We could not find any restaurant with "+cousineType+ ".");
+        errorMsg.text(
+          "We could not find any restaurant with " + cousineType + " cuisine."
+        );
         $("#restaurant-name").append(errorMsg);
-      }else {
+      } else {
         if (array[randomIndex].name !== undefined) {
           var restaurantName = $("<p>");
           restaurantName.text(array[randomIndex].name);
@@ -141,7 +142,6 @@ $(document).ready(function () {
           $("#restaurant-price").append(restaurantPrice);
         }
       }
-      
     });
   }
 });
