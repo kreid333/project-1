@@ -35,9 +35,7 @@ $(document).ready(function () {
       url: queryURLRecipe,
       method: "GET",
     }).then(function (response) {
-      console.log(response);
       var randomIndex = Math.floor(Math.random() * response.results.length);
-      console.log(randomIndex);
       $("#recipe-image").empty();
       $("#recipe-title").empty();
       $("#recipe-time").empty();
@@ -101,8 +99,6 @@ $(document).ready(function () {
           }
         }
       }
-      console.log(array);
-      console.log(array);
       var randomIndex = Math.floor(Math.random() * array.length);
       $("#restaurant-name").empty();
       $("#restaurant-location").empty();
