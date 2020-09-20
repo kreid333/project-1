@@ -28,6 +28,9 @@ $(document).ready(function () {
     $("#restaurant-price").empty();
     $("#restaurant-rank").empty();
     $("#recipe-rank").empty();
+    document.querySelector("#receipeCard").style.display = "none";
+    document.querySelector("#restaurantCard").style.display = "none";
+    
   });
 
   function showRecipe() {
